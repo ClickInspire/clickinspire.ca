@@ -364,6 +364,7 @@ ul li span.menu-toggler {
 #slider .btn{
 	text-transform:capitalize;
 	font-style:normal;
+	width: 135px !important;
 }
 
 /* Services Style
