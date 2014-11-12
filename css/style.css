@@ -1754,3 +1754,9 @@ ul.logo-client li > a > img:hover {
     top: 0;
     width: 100%;
 }
+.prev {
+	left: -60px !important;
+}
+.next {
+	right: -60px !important;
+}
