@@ -235,6 +235,8 @@ $(window).load(function() {
 	// Submit the form via Ajax
 	function submitForm() {
 	  var contactForm = $(this);
+		
+		console.log("submitting...");
 	
 	  // Are all the fields filled in?
 	
@@ -250,8 +252,12 @@ $(window).load(function() {
 	
 		contactForm.show();
 	
-		
-		analytics.track('Click.Inspire Contact', {
+		analytics.identify({
+			name: $('#senderName').val(),
+			email: $('#senderEmail').val()
+		});
+			
+		analytics.track('cinspire', {
 			name: $('#senderName').val(), 
 			email: $('#senderEmail').val(), 
 			message: $('#message').val()
