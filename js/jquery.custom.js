@@ -252,7 +252,7 @@ $(window).load(function() {
 	
 		contactForm.show();
 	
-		analytics.identify({
+		analytics.identify($('#senderEmail').val(), {
 			name: $('#senderName').val(),
 			email: $('#senderEmail').val()
 		});
