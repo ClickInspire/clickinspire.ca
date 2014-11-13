@@ -11,11 +11,3 @@ $(window).load(function(){
 		'slideEndAnimation': 	true
 	});
 });
-
-$(document).ready(function() {
-	$('#sendMessage').on('click', function(e) {
-		var name = $('[name=senderName]').val(), 
-				email = $('[name=senderEmail]').val(), 
-				website = $('[name=senderWebsite').val();
-	});
-});

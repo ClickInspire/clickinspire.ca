@@ -248,33 +248,14 @@ $(window).load(function() {
 	
 		// Yes; submit the form to the PHP script via Ajax
 	
-		$('#sendingMessage').fadeIn();
 		contactForm.show();
 	
-		$.ajax( {
-		  url: contactForm.attr( 'action' ) + "?ajax=true",
-		  type: contactForm.attr( 'method' ),
-		  data: contactForm.serialize(),
-		  success: submitFinished
-		} );
-	  }
-	
-	  // Prevent the default form submission occurring
-	  return false;
-	}
-	
-	
-	// Handle the Ajax response
-	function submitFinished( response ) {
-	  response = $.trim( response );
-	  $('#sendingMessage').fadeOut();
-	
-	  if ( response == "success" ) {
-	
-		// Form submitted successfully:
-		// 1. Display the success message
-		// 2. Clear the form fields
-		// 3. Fade the content back in
+		
+		analytics.track('Click.Inspire Contact', {
+			name: $('#senderName').val(), 
+			email: $('#senderEmail').val(), 
+			message: $('#message').val()
+		});
 	
 		$('#successMessage').fadeIn().delay(messageDelay).fadeOut();
 		$('#senderName').val( "" );
@@ -282,14 +263,10 @@ $(window).load(function() {
 		$('#message').val( "" );
 	
 		$('#content').delay(messageDelay+500).fadeTo( 'slow', 1 );
-	
-	  } else {
-	
-		// Form submission failed: Display the failure message,
-		// then redisplay the form
-		$('#failureMessage').fadeIn().delay(messageDelay).fadeOut();
-		$('#contactForm').delay(messageDelay+500).fadeIn();
 	  }
+	
+	  // Prevent the default form submission occurring
+	  return false;
 	}
 
 });
